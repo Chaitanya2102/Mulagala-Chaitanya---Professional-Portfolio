@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  nav, footer, #home, #about, #skills, #works, #experience, #contact, .no-print {
+    display: none !important;
+  }
+  #resume {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+    border: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
