@@ -219,7 +219,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
                 <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden max-w-lg mx-auto">
                   <div className="relative aspect-[1200/630] bg-slate-900 overflow-hidden">
                     <img
-                      src="/og-image.png"
+                      src={personalInfo.linkViewBanner || "/og-image.png"}
                       alt="Mulagala Chaitanya Social Preview Card"
                       className="w-full h-full object-cover"
                     />
@@ -242,7 +242,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
                 <div className="bg-[#DCF8C6] text-slate-900 rounded-2xl rounded-tl-xs p-3 shadow-xs max-w-md mx-auto space-y-2 border border-emerald-200">
                   <div className="bg-white/80 rounded-xl overflow-hidden border border-emerald-100 shadow-2xs">
                     <img
-                      src="/og-image.png"
+                      src={personalInfo.linkViewBanner || "/og-image.png"}
                       alt="WhatsApp Share Preview"
                       className="w-full aspect-[1200/630] object-cover"
                     />
@@ -268,7 +268,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
                 <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden max-w-md mx-auto">
                   <div className="relative aspect-[1200/630] overflow-hidden bg-slate-900">
                     <img
-                      src="/og-image.png"
+                      src={personalInfo.linkViewBanner || "/og-image.png"}
                       alt="Twitter Card Preview"
                       className="w-full h-full object-cover"
                     />
@@ -294,8 +294,8 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
                 Banner Dimension: <strong>1200 × 630 px (16:9)</strong>
               </span>
               <a
-                href="/og-image.png"
-                download="Mulagala_Chaitanya_Portfolio_Preview.png"
+                href={personalInfo.linkViewBanner || "/og-image.png"}
+                download="Mulagala_Chaitanya_Link_View.png"
                 target="_blank"
                 rel="noreferrer"
                 className="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1.5 hover:underline"

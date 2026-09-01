@@ -6,6 +6,7 @@ import mainframeImg from '../assets/images/project_mainframe_1788232049090.jpg';
 import travelImg from '../assets/images/project_travel_1788232064644.jpg';
 import dehazeImg from '../assets/images/project_dehaze_1788232080586.jpg';
 import salesImg from '../assets/images/project_sales_1788232100727.jpg';
+import linkViewImg from '../assets/images/link_view.png';
 
 export const personalInfo = {
   name: "Mulagala Chaitanya",
@@ -19,6 +20,7 @@ export const personalInfo = {
   cgpa: "8.5",
   photo: portraitImg,
   cutoutPhoto: cutoutImg,
+  linkViewBanner: linkViewImg,
   summary: "Mainframe Developer with 1.5+ years of experience in enterprise Mainframe technology, specializing in COBOL, JCL, DB2, VSAM, PL/I, IMSDB, TSO, and SPOOL. Proven ability to architect and maintain mission-critical batch/online systems, execute complex defect triage, handle high-priority production incidents, and deliver high-volume data extractions under strict SLAs. Experienced in full-stack web and Python data engineering, with strong leadership acumen as an Associate Team Leader.",
   socials: {
     github: "https://github.com/Chaitanya2102",
