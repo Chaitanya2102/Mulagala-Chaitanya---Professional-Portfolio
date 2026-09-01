@@ -1,8 +1,12 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { ArrowUp, ShieldCheck, Linkedin, Github, Mail, Phone } from 'lucide-react';
+import { ArrowUp, ShieldCheck, Linkedin, Github, Mail, Phone, Share2 } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenShare?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenShare }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -33,6 +37,15 @@ export const Footer: React.FC = () => {
             <a href="#works" className="hover:text-blue-600 transition">Works</a>
             <a href="#resume" className="hover:text-blue-600 transition">Resume</a>
             <a href="#contact" className="hover:text-blue-600 transition">Contact</a>
+            {onOpenShare && (
+              <button
+                onClick={onOpenShare}
+                className="text-blue-600 hover:text-blue-700 font-bold flex items-center gap-1 transition cursor-pointer"
+              >
+                <Share2 className="w-3.5 h-3.5" />
+                <span>Share Link</span>
+              </button>
+            )}
           </div>
 
           <button
@@ -52,7 +65,7 @@ export const Footer: React.FC = () => {
             <span>Built with React, TypeScript & Tailwind CSS</span>
             <span>•</span>
             <span className="text-emerald-600 font-medium flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5" /> Ready for Production
+              <ShieldCheck className="w-3.5 h-3.5" /> Vercel & Production Ready
             </span>
           </div>
         </div>
@@ -60,3 +73,4 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+

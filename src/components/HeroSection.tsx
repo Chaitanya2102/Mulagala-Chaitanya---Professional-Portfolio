@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { Mail, Phone, MapPin, Download, ArrowRight, ShieldCheck, Linkedin, Github, Globe, Check, Copy, Sparkles, Terminal, Award, Zap, Cpu, Database, Code2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Download, ArrowRight, ShieldCheck, Linkedin, Github, Globe, Check, Copy, Sparkles, Terminal, Award, Zap, Cpu, Database, Code2, Share2 } from 'lucide-react';
 import { motion } from 'motion/react';
 
-export const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  onOpenShare?: () => void;
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenShare }) => {
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
   const [roleIndex, setRoleIndex] = useState<number>(0);
 
@@ -164,6 +168,19 @@ export const HeroSection: React.FC = () => {
                 >
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                 </motion.a>
+
+                {onOpenShare && (
+                  <motion.button
+                    whileHover={{ scale: 1.12, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={onOpenShare}
+                    className="min-h-[40px] min-w-[40px] flex items-center justify-center p-2 rounded-xl text-blue-600 bg-blue-50/80 hover:bg-blue-100 transition border border-blue-200/60"
+                    aria-label="Share Link View"
+                    title="Share Link & Preview Card"
+                  >
+                    <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </motion.button>
+                )}
               </div>
 
               <span className="hidden sm:block h-4 w-px bg-slate-200" />

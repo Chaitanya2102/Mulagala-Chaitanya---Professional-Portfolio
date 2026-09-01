@@ -9,9 +9,11 @@ import { ResumeSection } from './components/ResumeSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { BackgroundGraphics } from './components/BackgroundGraphics';
+import { ShareModal } from './components/ShareModal';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
+  const [isShareOpen, setIsShareOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,10 +40,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50/40 text-slate-900 flex flex-col font-sans selection:bg-blue-100 selection:text-blue-900 relative">
       <BackgroundGraphics />
-      <Navbar activeSection={activeSection} />
+      <Navbar activeSection={activeSection} onOpenShare={() => setIsShareOpen(true)} />
 
       <main className="flex-1 relative z-10">
-        <HeroSection />
+        <HeroSection onOpenShare={() => setIsShareOpen(true)} />
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
@@ -50,7 +52,10 @@ export default function App() {
         <ContactSection />
       </main>
 
-      <Footer />
+      <Footer onOpenShare={() => setIsShareOpen(true)} />
+
+      <ShareModal isOpen={isShareOpen} onClose={() => setIsShareOpen(false)} />
     </div>
   );
 }
+

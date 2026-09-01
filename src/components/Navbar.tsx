@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { Menu, X, Mail, FileText, ArrowRight } from 'lucide-react';
+import { Menu, X, Mail, FileText, ArrowRight, Share2 } from 'lucide-react';
 
 interface NavbarProps {
   activeSection: string;
+  onOpenShare?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, onOpenShare }) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
@@ -35,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           : 'bg-white/80 backdrop-blur-sm py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between">
           {/* Logo / Name matching full name */}
           <a
@@ -70,8 +71,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             })}
           </nav>
 
-          {/* Quick Contact CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center gap-2.5">
+            {onOpenShare && (
+              <button
+                onClick={onOpenShare}
+                className="px-3.5 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-blue-600 text-xs font-semibold transition flex items-center gap-1.5 shadow-2xs cursor-pointer"
+                title="Share Portfolio Link"
+              >
+                <Share2 className="w-3.5 h-3.5 text-blue-600" />
+                <span>Share</span>
+              </button>
+            )}
+
             <a
               href="#contact"
               className="px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm hover:shadow-md shadow-blue-500/20 transition flex items-center gap-1.5"
@@ -81,15 +93,28 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-xl text-slate-700 hover:text-slate-950 hover:bg-slate-100 active:bg-slate-200 transition"
-            aria-label="Toggle Navigation Menu"
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6 text-blue-600" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Right Action Bar */}
+          <div className="flex items-center gap-1.5 md:hidden">
+            {onOpenShare && (
+              <button
+                onClick={onOpenShare}
+                className="min-h-[40px] min-w-[40px] flex items-center justify-center p-2 rounded-xl text-slate-700 hover:text-blue-600 hover:bg-slate-100 transition"
+                aria-label="Share Portfolio"
+                title="Share Portfolio"
+              >
+                <Share2 className="w-5 h-5 text-blue-600" />
+              </button>
+            )}
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-xl text-slate-700 hover:text-slate-950 hover:bg-slate-100 active:bg-slate-200 transition"
+              aria-label="Toggle Navigation Menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6 text-blue-600" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Dropdown Menu with Touch Friendly Spacing */}
@@ -114,7 +139,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 </a>
               );
             })}
-            <div className="pt-2 border-t border-slate-100">
+            <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
+              {onOpenShare && (
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenShare();
+                  }}
+                  className="flex items-center justify-center min-h-[44px] py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm font-semibold transition gap-1.5"
+                >
+                  <Share2 className="w-4 h-4 text-blue-600" />
+                  <span>Share Portfolio / Link View</span>
+                </button>
+              )}
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
@@ -130,3 +167,4 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     </header>
   );
 };
+
