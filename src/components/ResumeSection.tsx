@@ -152,27 +152,27 @@ CERTIFICATIONS & HONORS
   };
 
   return (
-    <section id="resume" className="py-20 md:py-28 bg-slate-50 border-t border-slate-100">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="resume" className="py-14 sm:py-20 md:py-28 bg-slate-50 border-t border-slate-100">
+      <div className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 no-print">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 no-print">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 text-blue-700 text-xs font-semibold mb-3">
             <FileText className="w-3.5 h-3.5" />
             OFFICIAL RESUME
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             Curriculum Vitae & Credentials
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base mt-3">
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base mt-2 sm:mt-3">
             Review the verified CV, download formatted versions, or save as an A4 PDF document.
           </p>
 
-          {/* Action Toolbar */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
+          {/* Action Toolbar with touch-friendly min targets */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-6">
             <button
               onClick={handleDownloadPdf}
               disabled={isGeneratingPdf}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold text-xs sm:text-sm transition shadow-sm hover:shadow-md cursor-pointer"
+              className="min-h-[42px] flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold text-xs sm:text-sm transition shadow-sm hover:shadow-md cursor-pointer"
               title="Download formatted PDF file"
             >
               {isGeneratingPdf ? (
@@ -190,7 +190,7 @@ CERTIFICATIONS & HONORS
 
             <button
               onClick={handlePrint}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm border border-slate-200 shadow-2xs transition"
+              className="min-h-[42px] flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm border border-slate-200 shadow-2xs transition"
               title="Print via browser dialog"
             >
               <Printer className="w-4 h-4 text-slate-600" />
@@ -199,7 +199,7 @@ CERTIFICATIONS & HONORS
 
             <button
               onClick={handleDownloadTxt}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm border border-slate-200 shadow-2xs transition"
+              className="min-h-[42px] flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm border border-slate-200 shadow-2xs transition"
               title="Download text resume"
             >
               <Download className="w-4 h-4 text-blue-600" />
@@ -208,7 +208,7 @@ CERTIFICATIONS & HONORS
 
             <button
               onClick={handleCopy}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm border border-slate-200 shadow-2xs transition"
+              className="min-h-[42px] flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm border border-slate-200 shadow-2xs transition"
             >
               {copiedResume ? (
                 <>
@@ -225,7 +225,7 @@ CERTIFICATIONS & HONORS
           </div>
 
           {/* Format View Tabs */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex flex-wrap justify-center gap-2 mt-5 sm:mt-6">
             {[
               { id: 'master', label: 'Consolidated Master CV' },
               { id: 'mainframe', label: 'Capgemini Enterprise CV' },
@@ -234,9 +234,9 @@ CERTIFICATIONS & HONORS
               <button
                 key={tab.id}
                 onClick={() => setResumeView(tab.id as any)}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition ${
+                className={`min-h-[38px] px-3.5 sm:px-4 py-1.5 rounded-xl text-xs font-semibold transition ${
                   resumeView === tab.id
-                    ? 'bg-blue-600 text-white shadow-xs'
+                    ? 'bg-blue-600 text-white shadow-xs font-bold'
                     : 'bg-white border border-slate-200 text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -250,7 +250,7 @@ CERTIFICATIONS & HONORS
         <div
           ref={resumeRef}
           id="printable-resume-sheet"
-          className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-sm space-y-6 max-w-4xl mx-auto print:bg-white print:text-black print:p-0 print:border-none print:shadow-none"
+          className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-sm space-y-5 sm:space-y-6 max-w-4xl mx-auto print:bg-white print:text-black print:p-0 print:border-none print:shadow-none"
         >
           {/* Header on Paper */}
           <div className="border-b border-slate-200 print:border-gray-300 pb-4 flex flex-col sm:flex-row items-center justify-between gap-4">

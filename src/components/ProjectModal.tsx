@@ -26,80 +26,80 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto animate-fade-in">
       <div 
-        className="relative w-full max-w-4xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col"
+        className="relative w-full max-w-4xl bg-white border border-slate-200 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-auto max-h-[94vh] flex flex-col"
         onClick={e => e.stopPropagation()}
       >
         {/* Modal Header Banner */}
-        <div className="relative p-6 sm:p-7 bg-slate-50 border-b border-slate-200">
+        <div className="relative p-4 sm:p-6 md:p-7 bg-slate-50 border-b border-slate-200">
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 p-2 rounded-full bg-white hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition border border-slate-200 shadow-2xs"
+            className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 min-w-[36px] min-h-[36px] p-2 rounded-full bg-white hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition border border-slate-200 shadow-2xs flex items-center justify-center"
             aria-label="Close modal"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
-          <div className="flex flex-wrap items-center gap-2 mb-2">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100/80 text-blue-700">
+          <div className="flex flex-wrap items-center gap-2 mb-1.5 pr-10">
+            <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-blue-100/80 text-blue-700">
               {project.categoryLabel}
             </span>
-            <span className="text-xs font-mono text-slate-500 flex items-center gap-1">
-              <Building className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-[11px] sm:text-xs font-mono text-slate-500 flex items-center gap-1">
+              <Building className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400" />
               {project.clientOrContext}
             </span>
             {project.duration && (
-              <span className="text-xs font-mono text-slate-500 flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-slate-400" />
+              <span className="text-[11px] sm:text-xs font-mono text-slate-500 flex items-center gap-1">
+                <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400" />
                 {project.duration}
               </span>
             )}
           </div>
 
-          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight pr-10">
             {project.title}
           </h2>
-          <p className="text-sm text-slate-600 mt-1">
+          <p className="text-xs sm:text-sm text-slate-600 mt-1 line-clamp-2 sm:line-clamp-none">
             {project.subtitle}
           </p>
 
           {/* Navigation Tabs */}
-          <div className="flex items-center gap-2 mt-6 border-b border-slate-200 -mb-6 sm:-mb-7 overflow-x-auto pb-0">
+          <div className="flex items-center gap-1 sm:gap-2 mt-4 sm:mt-6 border-b border-slate-200 -mb-4 sm:-mb-6 md:-mb-7 overflow-x-auto pb-0 [scrollbar-width:none]">
             <button
               onClick={() => setActiveTab('overview')}
-              className={`pb-3 px-3 text-xs sm:text-sm font-semibold transition border-b-2 whitespace-nowrap flex items-center gap-1.5 ${
+              className={`pb-2.5 sm:pb-3 px-2.5 sm:px-3 text-xs sm:text-sm font-semibold transition border-b-2 whitespace-nowrap flex items-center gap-1.5 min-h-[40px] ${
                 activeTab === 'overview'
                   ? 'border-blue-600 text-blue-600'
                   : 'border-transparent text-slate-500 hover:text-slate-900'
               }`}
             >
-              <Layers className="w-4 h-4" />
-              Project Overview
+              <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              Overview
             </button>
 
             <button
               onClick={() => setActiveTab('demo')}
-              className={`pb-3 px-3 text-xs sm:text-sm font-semibold transition border-b-2 whitespace-nowrap flex items-center gap-1.5 ${
+              className={`pb-2.5 sm:pb-3 px-2.5 sm:px-3 text-xs sm:text-sm font-semibold transition border-b-2 whitespace-nowrap flex items-center gap-1.5 min-h-[40px] ${
                 activeTab === 'demo'
                   ? 'border-blue-600 text-blue-600'
                   : 'border-transparent text-slate-500 hover:text-slate-900'
               }`}
             >
-              <Sparkles className="w-4 h-4 text-blue-600" />
-              Interactive Demo & Simulator
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600" />
+              Interactive Demo
             </button>
 
             {project.architecture && (
               <button
                 onClick={() => setActiveTab('architecture')}
-                className={`pb-3 px-3 text-xs sm:text-sm font-semibold transition border-b-2 whitespace-nowrap flex items-center gap-1.5 ${
+                className={`pb-2.5 sm:pb-3 px-2.5 sm:px-3 text-xs sm:text-sm font-semibold transition border-b-2 whitespace-nowrap flex items-center gap-1.5 min-h-[40px] ${
                   activeTab === 'architecture'
                     ? 'border-blue-600 text-blue-600'
                     : 'border-transparent text-slate-500 hover:text-slate-900'
                 }`}
               >
-                <Cpu className="w-4 h-4" />
+                <Cpu className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 System Flow
               </button>
             )}
@@ -107,21 +107,21 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             {project.codeSnippet && (
               <button
                 onClick={() => setActiveTab('code')}
-                className={`pb-3 px-3 text-xs sm:text-sm font-semibold transition border-b-2 whitespace-nowrap flex items-center gap-1.5 ${
+                className={`pb-2.5 sm:pb-3 px-2.5 sm:px-3 text-xs sm:text-sm font-semibold transition border-b-2 whitespace-nowrap flex items-center gap-1.5 min-h-[40px] ${
                   activeTab === 'code'
                     ? 'border-blue-600 text-blue-600'
                     : 'border-transparent text-slate-500 hover:text-slate-900'
                 }`}
               >
-                <Code2 className="w-4 h-4" />
-                Code Implementation
+                <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                Code
               </button>
             )}
           </div>
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="p-6 sm:p-8 overflow-y-auto flex-1 space-y-6">
+        <div className="p-4 sm:p-6 md:p-8 overflow-y-auto flex-1 space-y-5 sm:space-y-6">
           {/* TAB 1: OVERVIEW */}
           {activeTab === 'overview' && (
             <div className="space-y-6">

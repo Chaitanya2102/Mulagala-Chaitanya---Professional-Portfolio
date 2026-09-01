@@ -84,16 +84,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-700 hover:text-slate-950 hover:bg-slate-100 transition"
+            className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-xl text-slate-700 hover:text-slate-950 hover:bg-slate-100 active:bg-slate-200 transition"
             aria-label="Toggle Navigation Menu"
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-6 h-6 text-blue-600" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Dropdown Menu with Touch Friendly Spacing */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-3 p-4 bg-white border border-slate-100 rounded-2xl shadow-xl space-y-2">
+          <div className="md:hidden mt-3 p-3 bg-white/95 backdrop-blur-xl border border-slate-200/80 rounded-2xl shadow-xl shadow-slate-900/10 space-y-1 animate-fade-in">
             {navLinks.map(link => {
               const sectionId = link.href.substring(1);
               const isActive = activeSection === sectionId || (sectionId === 'home' && activeSection === 'hero');
@@ -102,11 +103,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-lg text-sm font-medium transition ${
-                    isActive ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-slate-700 hover:bg-slate-50'
+                  className={`flex items-center justify-between min-h-[44px] px-4 py-2.5 rounded-xl text-sm font-medium transition ${
+                    isActive 
+                      ? 'bg-blue-50 text-blue-600 font-bold' 
+                      : 'text-slate-700 hover:bg-slate-50 active:bg-slate-100'
                   }`}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />}
                 </a>
               );
             })}
@@ -114,9 +118,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-center py-2.5 px-4 rounded-lg bg-blue-600 text-white text-xs font-bold shadow-sm"
+                className="flex items-center justify-center min-h-[44px] py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-bold shadow-md shadow-blue-600/25 transition"
               >
-                Contact
+                <span>Get In Touch</span>
+                <ArrowRight className="w-4 h-4 ml-1.5" />
               </a>
             </div>
           </div>

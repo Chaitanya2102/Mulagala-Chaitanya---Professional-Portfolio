@@ -75,7 +75,7 @@ END:VCARD`;
   };
 
   return (
-    <section id="contact" className="relative py-20 md:py-28 bg-white/80 border-t border-slate-200/60 overflow-hidden">
+    <section id="contact" className="relative py-14 sm:py-20 md:py-28 bg-white/80 border-t border-slate-200/60 overflow-hidden">
       {/* Background Graphic Accents */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute inset-0 bg-[radial-gradient(#2563eb_0.75px,transparent_0.75px)] [background-size:26px_26px] opacity-[0.07]" />
@@ -83,73 +83,73 @@ END:VCARD`;
         <div className="absolute bottom-0 -left-20 w-96 h-96 bg-indigo-100/40 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-14"
+          className="text-center max-w-3xl mx-auto mb-8 sm:mb-14"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 text-blue-700 text-xs font-semibold mb-3">
             <Mail className="w-3.5 h-3.5" />
             GET IN TOUCH
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             Let's Connect & Collaborate
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base mt-3">
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base mt-2 sm:mt-3">
             Available for enterprise mainframe development opportunities, software engineering roles, and technical inquiries.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-start">
           {/* Left Column: Direct Info & Profile Card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-5 space-y-6"
+            className="lg:col-span-5 space-y-4 sm:space-y-6"
           >
             {/* Quick Profile Summary Card */}
-            <div className="bg-slate-50 border border-slate-200/80 rounded-3xl p-7 shadow-2xs space-y-5">
-              <div className="flex items-center gap-4">
+            <div className="bg-slate-50 border border-slate-200/80 rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-2xs space-y-4 sm:space-y-5">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <img
                   src={personalInfo.photo}
                   alt="Mulagala Chaitanya"
                   referrerPolicy="no-referrer"
-                  className="w-16 h-16 rounded-2xl object-cover ring-2 ring-blue-600/20 shadow-sm"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-cover ring-2 ring-blue-600/20 shadow-sm shrink-0"
                 />
                 <div>
-                  <h3 className="font-bold text-lg text-slate-900">{personalInfo.name}</h3>
+                  <h3 className="font-bold text-base sm:text-lg text-slate-900">{personalInfo.name}</h3>
                   <p className="text-xs text-blue-600 font-semibold">{personalInfo.currentRole}</p>
-                  <p className="text-xs text-slate-500">Client: {personalInfo.currentClient}</p>
+                  <p className="text-[11px] sm:text-xs text-slate-500">Client: {personalInfo.currentClient}</p>
                 </div>
               </div>
 
               <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center gap-2 text-xs text-emerald-800 font-medium">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse shrink-0"></span>
                 <span>Active for Direct Communication & Career Inquiries</span>
               </div>
 
               {/* Direct Info List */}
-              <div className="space-y-3 text-xs sm:text-sm">
+              <div className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm">
                 {/* Email Card */}
                 <motion.div
                   whileHover={{ y: -2 }}
-                  className="p-4 rounded-2xl bg-white border border-slate-200 flex items-center justify-between gap-3 shadow-2xs transition-colors hover:border-blue-300"
+                  className="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200 flex items-center justify-between gap-3 shadow-2xs transition-colors hover:border-blue-300"
                 >
                   <div className="flex items-center gap-3 overflow-hidden">
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                       <Mail className="w-4 h-4" />
                     </div>
                     <div className="truncate">
-                      <div className="text-[11px] text-slate-400 font-mono">Email Address</div>
+                      <div className="text-[10px] sm:text-[11px] text-slate-400 font-mono">Email Address</div>
                       <a
                         href={personalInfo.socials.email}
-                        className="font-semibold text-slate-900 hover:text-blue-600 transition truncate block"
+                        className="font-semibold text-xs sm:text-sm text-slate-900 hover:text-blue-600 transition truncate block"
                       >
                         {personalInfo.email}
                       </a>
@@ -158,7 +158,7 @@ END:VCARD`;
                   <motion.button
                     whileTap={{ scale: 0.9 }}
                     onClick={() => copyContact(personalInfo.email, 'email')}
-                    className="p-2 text-slate-400 hover:text-blue-600 transition rounded-lg hover:bg-slate-50 shrink-0 cursor-pointer"
+                    className="min-h-[36px] min-w-[36px] p-2 text-slate-400 hover:text-blue-600 transition rounded-lg hover:bg-slate-50 shrink-0 cursor-pointer flex items-center justify-center"
                     title="Copy Email"
                   >
                     {copiedEmail ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
@@ -168,17 +168,17 @@ END:VCARD`;
                 {/* Phone Card */}
                 <motion.div
                   whileHover={{ y: -2 }}
-                  className="p-4 rounded-2xl bg-white border border-slate-200 flex items-center justify-between gap-3 shadow-2xs transition-colors hover:border-emerald-300"
+                  className="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200 flex items-center justify-between gap-3 shadow-2xs transition-colors hover:border-emerald-300"
                 >
                   <div className="flex items-center gap-3 overflow-hidden">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div className="truncate">
-                      <div className="text-[11px] text-slate-400 font-mono">Phone / WhatsApp</div>
+                      <div className="text-[10px] sm:text-[11px] text-slate-400 font-mono">Phone / WhatsApp</div>
                       <a
                         href={personalInfo.socials.phone}
-                        className="font-semibold text-slate-900 hover:text-emerald-600 transition font-mono truncate block"
+                        className="font-semibold text-xs sm:text-sm text-slate-900 hover:text-emerald-600 transition font-mono truncate block"
                       >
                         {personalInfo.phone}
                       </a>
@@ -187,7 +187,7 @@ END:VCARD`;
                   <motion.button
                     whileTap={{ scale: 0.9 }}
                     onClick={() => copyContact(personalInfo.phone, 'phone')}
-                    className="p-2 text-slate-400 hover:text-emerald-600 transition rounded-lg hover:bg-slate-50 shrink-0 cursor-pointer"
+                    className="min-h-[36px] min-w-[36px] p-2 text-slate-400 hover:text-emerald-600 transition rounded-lg hover:bg-slate-50 shrink-0 cursor-pointer flex items-center justify-center"
                     title="Copy Phone"
                   >
                     {copiedPhone ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
@@ -195,13 +195,13 @@ END:VCARD`;
                 </motion.div>
 
                 {/* Location Card */}
-                <div className="p-4 rounded-2xl bg-white border border-slate-200 flex items-center gap-3 shadow-2xs">
-                  <div className="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                <div className="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200 flex items-center gap-3 shadow-2xs">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-[11px] text-slate-400 font-mono">Location</div>
-                    <div className="font-semibold text-slate-900">{personalInfo.location}</div>
+                    <div className="text-[10px] sm:text-[11px] text-slate-400 font-mono">Location</div>
+                    <div className="font-semibold text-xs sm:text-sm text-slate-900">{personalInfo.location}</div>
                   </div>
                 </div>
               </div>
@@ -211,7 +211,7 @@ END:VCARD`;
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={downloadVCard}
-                className="w-full py-3 px-4 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-semibold text-xs transition border border-slate-200 shadow-2xs flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full min-h-[44px] py-3 px-4 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-semibold text-xs transition border border-slate-200 shadow-2xs flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Download className="w-4 h-4 text-blue-600" />
                 <span>Save Contact to Phone (vCard .vcf)</span>
@@ -225,19 +225,19 @@ END:VCARD`;
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 bg-slate-50 border border-slate-200/80 rounded-3xl p-7 sm:p-9 shadow-2xs relative"
+            className="lg:col-span-7 bg-slate-50 border border-slate-200/80 rounded-2xl sm:rounded-3xl p-4 sm:p-7 md:p-9 shadow-2xs relative"
           >
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-200">
-                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
                     <MessageSquare className="w-4 h-4 text-blue-600" />
                     Send a Direct Message
                   </h3>
-                  <span className="text-[11px] font-mono text-slate-500">Response within 24h</span>
+                  <span className="text-[10px] sm:text-[11px] font-mono text-slate-500">Response within 24h</span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Your Full Name <span className="text-rose-500">*</span>
@@ -249,7 +249,7 @@ END:VCARD`;
                       placeholder="e.g. John Doe"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 transition"
+                      className="w-full min-h-[42px] bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 transition"
                     />
                   </div>
 
@@ -264,12 +264,12 @@ END:VCARD`;
                       placeholder="e.g. john@company.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 transition"
+                      className="w-full min-h-[42px] bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 transition"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Phone / Mobile (Optional)
@@ -280,7 +280,7 @@ END:VCARD`;
                       placeholder="+1 (555) 000-0000"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 transition font-mono"
+                      className="w-full min-h-[42px] bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 transition font-mono"
                     />
                   </div>
 
@@ -292,7 +292,7 @@ END:VCARD`;
                       name="inquiryType"
                       value={formData.inquiryType}
                       onChange={handleChange}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-blue-600 transition"
+                      className="w-full min-h-[42px] bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-blue-600 transition"
                     >
                       <option value="Full-time Mainframe / Software Role">Full-time Mainframe / Software Role</option>
                       <option value="Contract / Consulting Opportunity">Contract / Consulting Opportunity</option>
@@ -313,7 +313,7 @@ END:VCARD`;
                     placeholder="e.g. Mainframe Developer Role / Project Discussion"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 transition"
+                    className="w-full min-h-[42px] bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 transition"
                   />
                 </div>
 
@@ -338,7 +338,7 @@ END:VCARD`;
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto flex-1 py-3.5 px-6 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm transition shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
+                    className="w-full sm:w-auto flex-1 min-h-[46px] py-3 px-6 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm transition shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <span>Sending Message...</span>
@@ -354,7 +354,7 @@ END:VCARD`;
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     href={getMailtoHref()}
-                    className="w-full sm:w-auto py-3.5 px-5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs sm:text-sm transition border border-slate-200 shadow-2xs flex items-center justify-center gap-1.5"
+                    className="w-full sm:w-auto min-h-[46px] py-3 px-5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs sm:text-sm transition border border-slate-200 shadow-2xs flex items-center justify-center gap-1.5"
                     title="Send via default mail app"
                   >
                     <span>Open in Mail Client</span>
